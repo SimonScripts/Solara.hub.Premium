@@ -1,0 +1,1003 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Solara Hub Premium",
+   LoadingTitle = "Solara Hub Premium",
+   LoadingSubtitle = "by simon_617",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Solara Hub Premium"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "https://discord.gg/fvTeCqxYMp", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Solara Hub Premium",
+      Subtitle = "Solara Hub",
+      Note = "discord.gg/fvTeCqxYMp",
+      FileName = "Solara Hub Premium", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"zeko","notyashlol","notyashlol2"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "Solara Hub Premium",
+   Content = "Made by simon_617",
+   Duration = 5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Infinite Jump Toggle",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
+
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+	
+	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+local Slider = MainTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Slider = MainTab:CreateSlider({
+   Name = "JumpPower Slider",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local ScriptsTab = Window:CreateTab("💻 Scripts", nil) -- Title, Image
+
+local Button1 = ScriptsTab:CreateButton({
+   Name = "Arsenal",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/Insertl/QuotasHub/main/BETAv1.3"))()
+   end,
+})
+
+local Button2 = ScriptsTab:CreateButton({
+   Name = "JailBreak",
+   Callback = function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/xChaoticVoid/Jailbreak/main/Chaos.lua'), true))()
+   end,
+})
+
+local Button3 = ScriptsTab:CreateButton({
+   Name = "Kat",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter1cursed1rade/BelugaWare-1.4/main/belugaware.lua"))()
+   end,
+})
+
+local Button4 = ScriptsTab:CreateButton({
+   Name = "Dahood",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
+   end,
+})
+
+local Button5 = ScriptsTab:CreateButton({
+   Name = "Natural disaster",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/LiverMods/Rawnder-NTDR/main/NaturalDisaster'))()
+   end,
+})
+
+local Button6 = ScriptsTab:CreateButton({
+   Name = "infinity yield",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Button7 = ScriptsTab:CreateButton({
+   Name = "esp",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Button8 = ScriptsTab:CreateButton({
+   Name = "Rivals",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
+   end,
+})
+
+local Button9 = ScriptsTab:CreateButton({
+   Name = "Zombie attack",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/zombie-attack-by-lqmc/main/by%20%40lqmc%20on%20discord"))();
+   end,
+})
+
+local Button10 = ScriptsTab:CreateButton({
+   Name = "a dusty trip",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/Utilities/main/ADustyTrip",true))()
+   end,
+})
+
+local Button11 = ScriptsTab:CreateButton({
+   Name = "MM2",
+   Callback = function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/Roman34296589/SnapSanix-GUI-MM2/main/SnapSanix%20GUI%20mm2.lua'))()
+   end,
+})
+
+local Button12 = ScriptsTab:CreateButton({
+   Name = "Build a boat",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/autobuild.txt"))()
+   end,
+})
+
+local Button13 = ScriptsTab:CreateButton({
+   Name = "chat bypasser",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/chat-bypasser-by-me/main/bypasser"))()
+   end,
+})
+
+local Button14 = ScriptsTab:CreateButton({
+   Name = "combat warriors",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/master/flare"))()
+   end,
+})
+
+local Button15 = ScriptsTab:CreateButton({
+   Name = "Bed Wars",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/CakScripts/GhostWare/main/MainScript"))()
+   end,
+})
+
+local Button16 = ScriptsTab:CreateButton({
+   Name = "strongest battlegrounds",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/NBLMSCRIPTS/NBLMSCRIPTHUB/main/SKIBIDI"))()
+   end,
+})
+
+local Button17 = ScriptsTab:CreateButton({
+   Name = "counter blox",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua",true))()
+   end,
+})
+
+local Button18 = ScriptsTab:CreateButton({
+   Name = "Big paintball",
+   Callback = function()
+       loadstring(game:HttpGet("https://paste.ee/r/06eGU/0"))()
+   end,
+})
+
+local Button19 = ScriptsTab:CreateButton({
+   Name = "fishing simulator",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/fishing-simulator-by-me/main/by%20%40lqmc"))()
+   end,
+})
+
+local Button20 = ScriptsTab:CreateButton({
+   Name = "slap battles",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/Aquoupi/DestroyerX/main/DestroyerX"))()
+   end,
+})
+
+local Button2 = MainTab:CreateButton({
+   Name = "noclip",
+   Callback = function()
+       -- made by me (simon_617)
+ 
+local Workspace = game:GetService("Workspace")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local Noclip = Instance.new("ScreenGui")
+local BG = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Toggle = Instance.new("TextButton")
+local StatusPF = Instance.new("TextLabel")
+local Status = Instance.new("TextLabel")
+local Credit = Instance.new("TextLabel")
+local Plr = Players.LocalPlayer
+local Clipon = false
+ 
+Noclip.Name = "Noclip"
+Noclip.Parent = game.CoreGui
+ 
+BG.Name = "BG"
+BG.Parent = Noclip
+BG.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+BG.BorderColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
+BG.BorderSizePixel = 2
+BG.Position = UDim2.new(0.149479166, 0, 0.82087779, 0)
+BG.Size = UDim2.new(0, 210, 0, 127)
+BG.Active = true
+BG.Draggable = true
+ 
+Title.Name = "Title"
+Title.Parent = BG
+Title.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+Title.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+Title.BorderSizePixel = 2
+Title.Size = UDim2.new(0, 210, 0, 33)
+Title.Font = Enum.Font.Highway
+Title.Text = "Noclip"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.FontSize = Enum.FontSize.Size32
+Title.TextSize = 30
+Title.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+Title.TextStrokeTransparency = 0
+ 
+Toggle.Parent = BG
+Toggle.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+Toggle.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+Toggle.BorderSizePixel = 2
+Toggle.Position = UDim2.new(0.152380958, 0, 0.374192119, 0)
+Toggle.Size = UDim2.new(0, 146, 0, 36)
+Toggle.Font = Enum.Font.Highway
+Toggle.FontSize = Enum.FontSize.Size28
+Toggle.Text = "Toggle"
+Toggle.TextColor3 = Color3.new(1, 1, 1)
+Toggle.TextSize = 25
+Toggle.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+Toggle.TextStrokeTransparency = 0
+ 
+StatusPF.Name = "StatusPF"
+StatusPF.Parent = BG
+StatusPF.BackgroundColor3 = Color3.new(1, 1, 1)
+StatusPF.BackgroundTransparency = 1
+StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
+StatusPF.Size = UDim2.new(0, 56, 0, 20)
+StatusPF.Font = Enum.Font.Highway
+StatusPF.FontSize = Enum.FontSize.Size24
+StatusPF.Text = "Status:"
+StatusPF.TextColor3 = Color3.new(1, 1, 1)
+StatusPF.TextSize = 20
+StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
+StatusPF.TextStrokeTransparency = 0
+StatusPF.TextWrapped = true
+ 
+Status.Name = "Status"
+Status.Parent = BG
+Status.BackgroundColor3 = Color3.new(1, 1, 1)
+Status.BackgroundTransparency = 1
+Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
+Status.Size = UDim2.new(0, 56, 0, 20)
+Status.Font = Enum.Font.Highway
+Status.FontSize = Enum.FontSize.Size14
+Status.Text = "off"
+Status.TextColor3 = Color3.new(0.666667, 0, 0)
+Status.TextScaled = true
+Status.TextSize = 14
+Status.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+Status.TextWrapped = true
+Status.TextXAlignment = Enum.TextXAlignment.Left
+ 
+Credit.Name = "Credit"
+Credit.Parent = BG
+Credit.BackgroundColor3 = Color3.new(1, 1, 1)
+Credit.BackgroundTransparency = 1
+Credit.Position = UDim2.new(0.195238099, 0, 0.866141737, 0)
+Credit.Size = UDim2.new(0, 128, 0, 17)
+Credit.Font = Enum.Font.SourceSans
+Credit.FontSize = Enum.FontSize.Size18
+Credit.Text = "made by simon_617"
+Credit.TextColor3 = Color3.new(1, 1, 1)
+Credit.TextSize = 16
+Credit.TextStrokeColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Credit.TextStrokeTransparency = 0
+Credit.TextWrapped = true
+ 
+Toggle.MouseButton1Click:connect(function()
+    if Status.Text == "off" then
+        Clipon = true
+        Status.Text = "on"
+        Status.TextColor3 = Color3.new(0,185,0)
+        Stepped = game:GetService("RunService").Stepped:Connect(function()
+            if not Clipon == false then
+                for a, b in pairs(Workspace:GetChildren()) do
+                if b.Name == Plr.Name then
+                for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+                if v:IsA("BasePart") then
+                v.CanCollide = false
+                end end end end
+            else
+                Stepped:Disconnect()
+            end
+        end)
+    elseif Status.Text == "on" then
+        Clipon = false
+        Status.Text = "off"
+        Status.TextColor3 = Color3.new(170,0,0)
+    end
+end)
+   end,
+})
+
+local Button3 = MainTab:CreateButton({
+   Name = "FPS BOOSTER",
+   Callback = function()
+       -- Script Name: FPS Booster
+--[[Script Options :
+    [+] Ignore Tools
+    [-] Removed LowDetail Meshes and Images due to LowDetail now being Deprecated
+    [+] Added Explosions Tab
+    [+] Added Particles Tab
+    [+] Added TextLabels Tab
+    [*] Improved Low Rendering
+    [+] Customizable Loading Speeds
+    [+] Disable/Enable Notifications
+    [+] Disable/Enable Console Logs
+]]
+-- Script:
+_G.WaitPerAmount = 500 -- Set Higher or Lower depending on your computer's performance
+_G.SendNotifications = true -- Set to false if you don't want notifications
+_G.ConsoleLogs = false -- Set to true if you want console logs (mainly for debugging)
+ 
+ 
+_G.Settings = {
+    Players = {
+        ["Ignore Me"] = true,
+        ["Ignore Others"] = true,
+    },
+    Meshes = {
+        Destroy = false
+    },
+    Images = {
+        Invisible = true,
+        Destroy = false
+    },
+    Explosions = {
+        Smaller = true,
+        Invisible = false, -- Not recommended for PVP games
+        Destroy = false -- Not recommended for PVP games
+    },
+    Particles = {
+        Invisible = true,
+        Destroy = false
+    },
+    TextLabels = {
+        LowerQuality = true,
+        Invisible = false,
+        Destroy = false
+    },
+    Other = {
+        ["FPS Cap"] = 240, -- Set this true to uncap FPS
+        ["No Camera Effects"] = true,
+        ["No Clothes"] = true,
+        ["Low Water Graphics"] = true,
+        ["No Shadows"] = true,
+        ["Low Rendering"] = true,
+        ["Low Quality Parts"] = true
+    }
+}
+ 
+if not _G.Ignore then
+    _G.Ignore = {} -- Add Instances to this table to ignore them (e.g. _G.Ignore = {workspace.Map, workspace.Map2})
+end
+if not _G.WaitPerAmount then
+    _G.WaitPerAmount = 500 -- Set Higher or Lower depending on your computer's performance
+end
+if _G.SendNotifications == nil then
+    _G.SendNotifications = true -- Set to false if you don't want notifications
+end
+if _G.ConsoleLogs == nil then
+    _G.ConsoleLogs = false -- Set to true if you want console logs (mainly for debugging)
+end
+ 
+ 
+ 
+if not game:IsLoaded() then
+    repeat
+        task.wait()
+    until game:IsLoaded()
+end
+if not _G.Settings then
+    _G.Settings = {
+        Players = {
+            ["Ignore Me"] = true,
+            ["Ignore Others"] = true,
+            ["Ignore Tools"] = true
+        },
+        Meshes = {
+            NoMesh = false,
+            NoTexture = false,
+            Destroy = false
+        },
+        Images = {
+            Invisible = true,
+            Destroy = false
+        },
+        Explosions = {
+            Smaller = true,
+            Invisible = false, -- Not recommended for PVP games
+            Destroy = false -- Not recommended for PVP games
+        },
+        Particles = {
+            Invisible = true,
+            Destroy = false
+        },
+        TextLabels = {
+            LowerQuality = false,
+            Invisible = false,
+            Destroy = false
+        },
+        MeshParts = {
+            LowerQuality = true,
+            Invisible = false,
+            NoTexture = false,
+            NoMesh = false,
+            Destroy = false
+        },
+        Other = {
+            ["FPS Cap"] = 240, -- Set this true to uncap FPS
+            ["No Camera Effects"] = true,
+            ["No Clothes"] = true,
+            ["Low Water Graphics"] = true,
+            ["No Shadows"] = true,
+            ["Low Rendering"] = true,
+            ["Low Quality Parts"] = true,
+            ["Low Quality Models"] = true,
+            ["Reset Materials"] = true,
+            ["Lower Quality MeshParts"] = true
+        }
+    }
+end
+local Players, Lighting, StarterGui, MaterialService = game:GetService("Players"), game:GetService("Lighting"), game:GetService("StarterGui"), game:GetService("MaterialService")
+local ME, CanBeEnabled = Players.LocalPlayer, {"ParticleEmitter", "Trail", "Smoke", "Fire", "Sparkles"}
+local function PartOfCharacter(Instance)
+    for i, v in pairs(Players:GetPlayers()) do
+        if v ~= ME and v.Character and Instance:IsDescendantOf(v.Character) then
+            return true
+        end
+    end
+    return false
+end
+local function DescendantOfIgnore(Instance)
+    for i, v in pairs(_G.Ignore) do
+        if Instance:IsDescendantOf(v) then
+            return true
+        end
+    end
+    return false
+end
+local function CheckIfBad(Instance)
+    if not Instance:IsDescendantOf(Players) and (_G.Settings.Players["Ignore Others"] and not PartOfCharacter(Instance) or not _G.Settings.Players["Ignore Others"]) and (_G.Settings.Players["Ignore Me"] and ME.Character and not Instance:IsDescendantOf(ME.Character) or not _G.Settings.Players["Ignore Me"]) and (_G.Settings.Players["Ignore Tools"] and not Instance:IsA("BackpackItem") and not Instance:FindFirstAncestorWhichIsA("BackpackItem") or not _G.Settings.Players["Ignore Tools"])--[[not PartOfCharacter(Instance)]] and (_G.Ignore and not table.find(_G.Ignore, Instance) and not DescendantOfIgnore(Instance) or (not _G.Ignore or type(_G.Ignore) ~= "table" or #_G.Ignore <= 0)) then
+        if Instance:IsA("DataModelMesh") then
+            if _G.Settings.Meshes.NoMesh and Instance:IsA("SpecialMesh") then
+                Instance.MeshId = ""
+            end
+            if _G.Settings.Meshes.NoTexture and Instance:IsA("SpecialMesh") then
+                Instance.TextureId = ""
+            end
+            if _G.Settings.Meshes.Destroy or _G.Settings["No Meshes"] then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("FaceInstance") then
+            if _G.Settings.Images.Invisible then
+                Instance.Transparency = 1
+                Instance.Shiny = 1
+            end
+            if _G.Settings.Images.LowDetail then
+                Instance.Shiny = 1
+            end
+            if _G.Settings.Images.Destroy then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("ShirtGraphic") then
+            if _G.Settings.Images.Invisible then
+                Instance.Graphic = ""
+            end
+            if _G.Settings.Images.Destroy then
+                Instance:Destroy()
+            end
+        elseif table.find(CanBeEnabled, Instance.ClassName) then
+            if _G.Settings["Invisible Particles"] or _G.Settings["No Particles"] or (_G.Settings.Other and _G.Settings.Other["Invisible Particles"]) or (_G.Settings.Particles and _G.Settings.Particles.Invisible) then
+                Instance.Enabled = false
+            end
+            if (_G.Settings.Other and _G.Settings.Other["No Particles"]) or (_G.Settings.Particles and _G.Settings.Particles.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("PostEffect") and (_G.Settings["No Camera Effects"] or (_G.Settings.Other and _G.Settings.Other["No Camera Effects"])) then
+            Instance.Enabled = false
+        elseif Instance:IsA("Explosion") then
+            if _G.Settings["Smaller Explosions"] or (_G.Settings.Other and _G.Settings.Other["Smaller Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Smaller) then
+                Instance.BlastPressure = 1
+                Instance.BlastRadius = 1
+            end
+            if _G.Settings["Invisible Explosions"] or (_G.Settings.Other and _G.Settings.Other["Invisible Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Invisible) then
+                Instance.BlastPressure = 1
+                Instance.BlastRadius = 1
+                Instance.Visible = false
+            end
+            if _G.Settings["No Explosions"] or (_G.Settings.Other and _G.Settings.Other["No Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("Clothing") or Instance:IsA("SurfaceAppearance") or Instance:IsA("BaseWrap") then
+            if _G.Settings["No Clothes"] or (_G.Settings.Other and _G.Settings.Other["No Clothes"]) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("BasePart") and not Instance:IsA("MeshPart") then
+            if _G.Settings["Low Quality Parts"] or (_G.Settings.Other and _G.Settings.Other["Low Quality Parts"]) then
+                Instance.Material = Enum.Material.Plastic
+                Instance.Reflectance = 0
+            end
+        elseif Instance:IsA("TextLabel") and Instance:IsDescendantOf(workspace) then
+            if _G.Settings["Lower Quality TextLabels"] or (_G.Settings.Other and _G.Settings.Other["Lower Quality TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.LowerQuality) then
+                Instance.Font = Enum.Font.SourceSans
+                Instance.TextScaled = false
+                Instance.RichText = false
+                Instance.TextSize = 14
+            end
+            if _G.Settings["Invisible TextLabels"] or (_G.Settings.Other and _G.Settings.Other["Invisible TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.Invisible) then
+                Instance.Visible = false
+            end
+            if _G.Settings["No TextLabels"] or (_G.Settings.Other and _G.Settings.Other["No TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("Model") then
+            if _G.Settings["Low Quality Models"] or (_G.Settings.Other and _G.Settings.Other["Low Quality Models"]) then
+                Instance.LevelOfDetail = 1
+            end
+        elseif Instance:IsA("MeshPart") then
+            if _G.Settings["Low Quality MeshParts"] or (_G.Settings.Other and _G.Settings.Other["Low Quality MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.LowerQuality) then
+                Instance.RenderFidelity = 2
+                Instance.Reflectance = 0
+                Instance.Material = Enum.Material.Plastic
+            end
+            if _G.Settings["Invisible MeshParts"] or (_G.Settings.Other and _G.Settings.Other["Invisible MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.Invisible) then
+                Instance.Transparency = 1
+                Instance.RenderFidelity = 2
+                Instance.Reflectance = 0
+                Instance.Material = Enum.Material.Plastic
+            end
+            if _G.Settings.MeshParts and _G.Settings.MeshParts.NoTexture then
+                Instance.TextureID = ""
+            end
+            if _G.Settings.MeshParts and _G.Settings.MeshParts.NoMesh then
+                Instance.MeshId = ""
+            end
+            if _G.Settings["No MeshParts"] or (_G.Settings.Other and _G.Settings.Other["No MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.Destroy) then
+                Instance:Destroy()
+            end
+        end
+    end
+end
+if _G.SendNotifications then
+    StarterGui:SetCore("SendNotification", {
+        Title = "Loading",
+        Text = "Loading FPS Booster...",
+        Duration = math.huge,
+        Button1 = "Okay"
+    })
+end
+coroutine.wrap(pcall)(function()
+    if (_G.Settings["Low Water Graphics"] or (_G.Settings.Other and _G.Settings.Other["Low Water Graphics"])) then
+        if not workspace:FindFirstChildOfClass("Terrain") then
+            repeat
+                task.wait()
+            until workspace:FindFirstChildOfClass("Terrain")
+        end
+        workspace:FindFirstChildOfClass("Terrain").WaterWaveSize = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterWaveSpeed = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterReflectance = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterTransparency = 0
+        if sethiddenproperty then
+            sethiddenproperty(workspace:FindFirstChildOfClass("Terrain"), "Decoration", false)
+        else
+            StarterGui:SetCore("SendNotification", {
+                Title = "Loading",
+                Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+            warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
+        end
+        if _G.SendNotifications then
+            StarterGui:SetCore("SendNotification", {
+                Title = "Loading",
+                Text = "Low Water Graphics Enabled",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+        end
+        if _G.ConsoleLogs then
+            warn("Low Water Graphics Enabled")
+        end
+    end
+end)
+coroutine.wrap(pcall)(function()
+    if _G.Settings["No Shadows"] or (_G.Settings.Other and _G.Settings.Other["No Shadows"]) then
+        Lighting.GlobalShadows = false
+        Lighting.FogEnd = 9e9
+        Lighting.ShadowSoftness = 0
+        if sethiddenproperty then
+            sethiddenproperty(Lighting, "Technology", 2)
+        else
+            StarterGui:SetCore("SendNotification", {
+                Title = "Failed",
+                Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+            warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
+        end
+        if _G.SendNotifications then
+            StarterGui:SetCore("SendNotification", {
+                Title = "Loading",
+                Text = "No Shadows Enabled",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+        end
+        if _G.ConsoleLogs then
+            warn("No Shadows Enabled")
+        end
+    end
+end)
+coroutine.wrap(pcall)(function()
+    if _G.Settings["Low Rendering"] or (_G.Settings.Other and _G.Settings.Other["Low Rendering"]) then
+        settings().Rendering.QualityLevel = 1
+        settings().Rendering.MeshPartDetailLevel = Enum.MeshPartDetailLevel.Level04
+        if _G.SendNotifications then
+            StarterGui:SetCore("SendNotification", {
+                Title = "Loading",
+                Text = "Low Rendering Enabled",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+        end
+        if _G.ConsoleLogs then
+            warn("Low Rendering Enabled")
+        end
+    end
+end)
+coroutine.wrap(pcall)(function()
+    if _G.Settings["Reset Materials"] or (_G.Settings.Other and _G.Settings.Other["Reset Materials"]) then
+        for i, v in pairs(MaterialService:GetChildren()) do
+            v:Destroy()
+        end
+        MaterialService.Use2022Materials = false
+        if _G.SendNotifications then
+            StarterGui:SetCore("SendNotification", {
+                Title = "Loading",
+                Text = "Reset Materials Enabled",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+        end
+        if _G.ConsoleLogs then
+            warn("Reset Materials Enabled")
+        end
+    end
+end)
+coroutine.wrap(pcall)(function()
+    if _G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"]) then
+        if setfpscap then
+            if type(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])) == "string" or type(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])) == "number" then
+                setfpscap(tonumber(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])))
+                if _G.SendNotifications then
+                    StarterGui:SetCore("SendNotification", {
+                        Title = "Loading",
+                        Text = "FPS Capped to" .. tostring(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])),
+                        Duration = 5,
+                        Button1 = "Okay"
+                    })
+                end
+                if _G.ConsoleLogs then
+                    warn("FPS Capped to " .. tostring(_G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"])))
+                end
+            elseif _G.Settings["FPS Cap"] or (_G.Settings.Other and _G.Settings.Other["FPS Cap"]) == true then
+                setfpscap(1e6)
+                if _G.SendNotifications then
+                    StarterGui:SetCore("SendNotification", {
+                        Title = "Loading",
+                        Text = "FPS Uncapped",
+                        Duration = 5,
+                        Button1 = "Okay"
+                    })
+                end
+                if _G.ConsoleLogs then
+                    warn("FPS Uncapped")
+                end
+            end
+        else
+            StarterGui:SetCore("SendNotification", {
+                Title = "Failed",
+                Text = "FPS Cap Failed",
+                Duration = math.huge,
+                Button1 = "Okay"
+            })
+            warn("FPS Cap Failed")
+        end
+    end
+end)
+game.DescendantAdded:Connect(function(value)
+    wait(_G.LoadedWait or 1)
+    CheckIfBad(value)
+end)
+local Descendants = game:GetDescendants()
+local StartNumber = _G.WaitPerAmount or 500
+local WaitNumber = _G.WaitPerAmount or 500
+if _G.SendNotifications then
+    StarterGui:SetCore("SendNotification", {
+        Title = "Loading",
+        Text = "Checking " .. #Descendants .. " Instances...",
+        Duration = 15,
+        Button1 = "Okay"
+    })
+end
+if _G.ConsoleLogs then
+    warn("Checking " .. #Descendants .. " Instances...")
+end
+for i, v in pairs(Descendants) do
+    CheckIfBad(v)
+    if i == WaitNumber then
+        task.wait()
+        if _G.ConsoleLogs then
+            print("Loaded " .. i .. "/" .. #Descendants)
+        end
+        WaitNumber = WaitNumber + StartNumber
+    end
+end
+StarterGui:SetCore("SendNotification", {
+    Title = "Ready!",
+    Text = "FPS Booster Loaded!",
+    Duration = math.huge,
+    Button1 = "Okay"
+})
+warn("FPS Booster Loaded!")
+--game.DescendantAdded:Connect(CheckIfBad)
+--[[game.DescendantAdded:Connect(function(value)
+    CheckIfBad(value)
+end)]]
+   end,
+})
+
+local Button4 = MainTab:CreateButton({
+   Name = "Anti kick",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/anti-afk/main/anti%20afk"))();
+   end,
+})
+
+local Button5 = MainTab:CreateButton({
+   Name = "Headless",
+   Callback = function()
+       game.Players.LocalPlayer.Character.Head.Transparency = 1
+game.Players.LocalPlayer.Character.Head.Transparency = 1
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+if (v:IsA("Decal")) then
+v.Transparency = 1
+end
+end
+   end,
+})
+
+local Button21 = ScriptsTab:CreateButton({
+   Name = "Taxi Boss",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/5ScA4pR9"))()
+   end,
+})
+
+local Button22 = ScriptsTab:CreateButton({
+   Name = "WestBound",
+   Callback = function()
+      loadstring(game:HttpGet("https://scriptblox.com/raw/Westbound-Speed-and-Aimbot-and-ESP-and-Teleports-and-More-6503"))()
+   end,
+})
+
+local Button23 = ScriptsTab:CreateButton({
+   Name = "Piggy",
+   Callback = function()
+local PiggyGui = Instance.new("ScreenGui")
+PiggyGui.Name = "Made by simon_617"
+PiggyGui.Parent = game.StarterGui
+ 
+local ScrollingFrame = Instance.new("ScrollingFrame", PiggyGui)
+ScrollingFrame.BackgroundColor3 = Color3.new(0.15, 0.15, 0.15)
+ScrollingFrame.Position = UDim2.new(0.08, 0, 0.42, 0)
+ScrollingFrame.Size = UDim2.new(0, 296, 0, 388)
+ 
+ 
+ 
+ 
+local PiggyGui = Instance.new("ScreenGui")
+PiggyGui.Name = "PiggyGui"
+PiggyGui.Parent = game.CoreGui
+ 
+local ScrollingFrame = Instance.new("ScrollingFrame", PiggyGui)
+ScrollingFrame.BackgroundColor3 = Color3.new(0.15, 0.15, 0.15)
+ScrollingFrame.Position = UDim2.new(0.08, 0, 0.42, 0)
+ScrollingFrame.Size = UDim2.new(0, 296, 0, 388)
+ 
+local UIGridLayout = Instance.new("UIGridLayout", ScrollingFrame)
+UIGridLayout.CellSize = UDim2.new(0,90,0,90)
+ 
+while wait(1) do
+local a = workspace:getDescendants()
+local items = {}
+local itemframes = ScrollingFrame:getChildren()
+for i=1,#itemframes do
+if itemframes[i].ClassName == "TextButton" then
+itemframes[i]:remove()
+end
+end
+for i=1,#a do
+if a[i].Name == "ItemPickupScript" and a[i].Parent:findFirstChild("ClickDetector") then
+table.insert(items, a[i].Parent)
+end
+end
+for i=1,#items do
+local ItemFrame = Instance.new("TextButton", ScrollingFrame)
+ItemFrame.Name = "ItemFrame"
+ItemFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+ItemFrame.BackgroundTransparency = 0.95
+ItemFrame.Size = UDim2.new(0, 100, 0, 100)
+ItemFrame.Text = ""
+local View = Instance.new("ViewportFrame", ItemFrame)
+View.Name = "View"
+View.Size = UDim2.new(1,0,1,0)
+View.BackgroundTransparency = 1
+View.BorderSizePixel = 0
+local object = items[i]
+local viewportclone = object:Clone()
+viewportclone.Parent = View
+local cam = Instance.new("Camera", viewportclone)
+cam.CameraType = Enum.CameraType.Fixed
+local objectPosition = object.Position
+local cameraPosition = objectPosition + Vector3.new(0,3,0)
+cam.CoordinateFrame = CFrame.new(cameraPosition, objectPosition)
+View.CurrentCamera = cam
+ 
+ItemFrame.MouseButton1Down:connect(function()
+if items[i]:findFirstChild("ClickDetector") then
+local cpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.05)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = items[i].CFrame
+wait(0.1)
+fireclickdetector(items[i].ClickDetector)
+wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cpos
+end
+end)
+end
+end
+   end,
+})
+
+local Button24 = ScriptsTab:CreateButton({
+   Name = "Subway Surfers",
+   Callback = function()
+      local coins = game.Workspace.Coins:GetChildren()
+
+for _, coin in ipairs(coins) do
+    if coin.Transparency == 0 then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = coin.CFrame
+    wait(0.1)
+    end
+end
+   end,
+})
+
+local Button25 = ScriptsTab:CreateButton({
+   Name = "Pressure",
+   Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/pressure%20god.lua"))()
+   end,
+})
+
+local Button26 = ScriptsTab:CreateButton({
+   Name = "Slots rng",
+   Callback = function()
+        --[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+
+local args = {
+    [1] = getNil("UncommonStick", "Tool"),
+    [2] = 9999999999999 --U can Change it
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Crates"):WaitForChild("RemoteEvents"):WaitForChild("Sell"):FireServer(unpack(args))
+
+
+
+
+inf money. u can change the amount u want (dont cop this)
+   end,
+})
+
+local Button27 = ScriptsTab:CreateButton({
+   Name = "Funky friday",
+   Callback = function()
+     loadstring(game:HttpGet('https://pastebin.com/raw/dcyuEgyK'))()
+   end,
+})
+
+local Button28 = ScriptsTab:CreateButton({
+   Name = "Tower of Hell",
+   Callback = function()
+     local player = game.Players.LocalPlayer
+local destination = game.Workspace.tower.finishes.Finish
+
+if player and destination then
+    local character = player.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = destination.CFrame
+    end
+end
+   end,
+})
+
+local Button29 = ScriptsTab:CreateButton({
+   Name = "Fake limiteds",
+   Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/fakelimitedsv2/main/fakelimitedsv2", true))()
+   end,
+})
+
+local Button30 = ScriptsTab:CreateButton({
+   Name = "Scythe sim",
+   Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/scythe-sim/main/scythe%20sim"))()
+   end,
+})
