@@ -10,11 +10,11 @@ local Window = Rayfield:CreateWindow({
       FileName = "Solara Hub Premium"
    },
    Discord = {
-      Enabled = false,
+      Enabled = true,
       Invite = "https://discord.gg/fvTeCqxYMp", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "Solara Hub Premium",
       Subtitle = "Solara Hub",
@@ -962,7 +962,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Crates"):WaitForChild("Remote
 
 
 
-inf money. u can change the amount u want (dont cop this)
    end,
 })
 
