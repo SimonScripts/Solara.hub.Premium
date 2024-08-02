@@ -1000,3 +1000,10 @@ local Button30 = ScriptsTab:CreateButton({
      loadstring(game:HttpGet("https://raw.githubusercontent.com/7hbl/scythe-sim/main/scythe%20sim"))()
    end,
 })
+
+local Button31 = ScriptsTab:CreateButton({
+   Name = "Blox Fruits",
+   Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/MAMAhub1/Mmahub/main/README.md"))()
+   end,
+})
